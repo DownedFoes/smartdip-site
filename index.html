@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Dip — a creamy, tangy, high-protein cottage cheese dip. 28g protein. Dip Differently. Snack Smarter." />
+  <title>Smart Dip — Flavor Without the Fuss</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            yellow: {
+              brand: '#FFEB60',
+              deep: '#F5D84A',
+              soft: '#FFF4A3',
+            },
+            purple: {
+              brand: '#9B00FF',
+              deep: '#7A00CC',
+              soft: '#B84DFF',
+            },
+            green: {
+              brand: '#3DBB4A',
+            },
+          },
+          fontFamily: {
+            display: ['Fredoka', 'system-ui', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            cta: '0 8px 0 #6B00B3, 0 12px 28px rgba(155, 0, 255, 0.35)',
+            'cta-hover': '0 4px 0 #6B00B3, 0 8px 20px rgba(155, 0, 255, 0.4)',
+            product: '0 30px 60px rgba(0, 0, 0, 0.18)',
+            glass: '0 20px 50px rgba(0, 0, 0, 0.12)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-sans text-black antialiased bg-yellow-brand">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-full">
+    Skip to content
+  </a>
+
+  <!-- Navigation -->
+  <header class="site-header fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="mx-auto max-w-7xl px-5 sm:px-8 py-4 flex items-center justify-between gap-4" aria-label="Primary">
+      <a href="#home" class="logo-link shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-brand rounded-lg">
+        <img
+          src="images/logo-badge.png"
+          alt="Smart Dip logo"
+          class="h-11 sm:h-14 w-auto object-contain drop-shadow-md"
+          width="140"
+          height="80"
+        />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#story" class="nav-link">Story</a></li>
+        <li><a href="#flavors" class="nav-link">Flavors</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button
+        type="button"
+        id="menu-toggle"
+        class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-black/15 bg-white/40 backdrop-blur-sm hover:bg-white/70 transition"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden hidden border-t border-black/10 bg-yellow-brand/95 backdrop-blur-md">
+      <ul class="px-5 py-4 flex flex-col gap-3 text-base font-semibold">
+        <li><a href="#home" class="nav-link block py-2">Home</a></li>
+        <li><a href="#story" class="nav-link block py-2">Story</a></li>
+        <li><a href="#flavors" class="nav-link block py-2">Flavors</a></li>
+        <li><a href="#contact" class="nav-link block py-2">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="home" class="hero relative min-h-[100svh] flex flex-col overflow-hidden">
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-8 pt-28 pb-16">
+        <p class="reveal font-display text-purple-brand text-sm sm:text-base font-semibold tracking-[0.2em] uppercase mb-5">
+          Smart Dip
+        </p>
+        <h1 class="reveal reveal-delay-1 font-display font-bold text-[clamp(2.75rem,9vw,6.5rem)] leading-[0.95] tracking-tight max-w-5xl text-balance">
+          Flavor Without<br class="hidden sm:block" /> the Fuss
+        </h1>
+        <p class="reveal reveal-delay-2 mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-black/80">
+          A creamy, tangy, high-protein cottage cheese dip with <strong class="font-semibold text-black">28g protein</strong> per tub.
+          Bold flavour. Better ingredients. Lasting satisfaction.
+        </p>
+        <div class="reveal reveal-delay-3 mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <a href="#contact" class="btn-cta">Get in Touch</a>
+          <a href="#flavors" class="text-sm font-semibold underline underline-offset-4 decoration-2 decoration-purple-brand/50 hover:decoration-purple-brand transition">
+            See the flavor
+          </a>
+        </div>
+      </div>
+
+      <!-- Marquee -->
+      <div class="marquee-wrap relative z-10" aria-hidden="true">
+        <div class="marquee-curve">
+          <div class="marquee-track">
+            <div class="marquee-content">
+              <span>Dip Differently</span>
+              <span class="dot">•</span>
+              <span>Full of Flavour</span>
+              <span class="dot">•</span>
+              <span>Snack Smarter</span>
+              <span class="dot">•</span>
+              <span>28g Protein</span>
+              <span class="dot">•</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+              <span>Dip Differently</span>
+              <span class="dot">•</span>
+              <span>Full of Flavour</span>
+              <span class="dot">•</span>
+              <span>Snack Smarter</span>
+              <span class="dot">•</span>
+              <span>28g Protein</span>
+              <span class="dot">•</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flavors / Product -->
+    <section id="flavors" class="relative py-20 sm:py-28 px-5 sm:px-8 overflow-hidden">
+      <div class="section-sunburst" aria-hidden="true"></div>
+      <div class="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal product-stage relative flex justify-center lg:justify-start order-1">
+          <div class="product-glow" aria-hidden="true"></div>
+          <img
+            src="images/product-french-onion.png"
+            alt="Smart Dip French Onion cottage cheese dip lid — 28g protein"
+            class="product-float relative z-10 w-full max-w-md lg:max-w-lg drop-shadow-product"
+            width="600"
+            height="600"
+          />
+          <div class="product-shadow" aria-hidden="true"></div>
+        </div>
+
+        <div class="reveal reveal-delay-1 order-2 text-center lg:text-left">
+          <p class="font-display text-purple-brand text-sm font-semibold tracking-[0.18em] uppercase mb-4">
+            French Onion
+          </p>
+          <h2 class="font-display font-bold text-[clamp(2.2rem,5.5vw,4rem)] leading-[1.05] tracking-tight text-balance">
+            Finally, a dip without the downsides
+          </h2>
+          <p class="mt-6 text-base sm:text-lg leading-relaxed text-black/80 max-w-lg mx-auto lg:mx-0">
+            Creamy cottage cheese dip packed with <strong class="text-black">28g of protein</strong> —
+            all the indulgent flavour, none of the usual snack regrets. Dip differently. Snack smarter.
+          </p>
+          <ul class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3 text-sm font-semibold">
+            <li class="pill-tag">28g Protein</li>
+            <li class="pill-tag pill-tag--alt">Creamy &amp; Tangy</li>
+            <li class="pill-tag">Canadian Dairy</li>
+          </ul>
+          <div class="mt-10">
+            <a href="#contact" class="btn-cta">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="relative py-20 sm:py-28 px-5 sm:px-8 overflow-hidden">
+      <div class="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div class="reveal order-2 lg:order-1 text-center lg:text-left">
+          <h2 class="font-display font-bold text-[clamp(2.4rem,5.5vw,4.25rem)] leading-[1.05] tracking-tight">
+            Our Story.
+          </h2>
+          <div class="mt-6 space-y-4 text-base sm:text-lg leading-relaxed text-black/80 max-w-lg mx-auto lg:mx-0">
+            <p>
+              Smart Dip started in a tiny apartment kitchen in Barrie — a high-protein swap for the dips we loved,
+              built with clean ingredients and zero compromise on taste.
+            </p>
+            <p>
+              What began as a weekend experiment became a local-market favourite: snacking with swagger,
+              creamy satisfaction that actually fuels you, and a cool onion mascot who knows when to chill.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a href="#contact" class="btn-cta">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1 order-1 lg:order-2 relative flex justify-center">
+          <div class="mascot-glow" aria-hidden="true"></div>
+          <img
+            src="images/mascot-lounge.png"
+            alt="Smart Dip onion mascot relaxing in a lounge chair with sunglasses"
+            class="mascot-float relative z-10 w-full max-w-sm sm:max-w-md lg:max-w-lg"
+            width="520"
+            height="520"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="relative py-20 sm:py-28 px-5 sm:px-8 overflow-hidden">
+      <div class="section-sunburst section-sunburst--soft" aria-hidden="true"></div>
+      <div class="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal relative flex justify-center lg:justify-start">
+          <div class="sparkle sparkle-1" aria-hidden="true"></div>
+          <div class="sparkle sparkle-2" aria-hidden="true"></div>
+          <img
+            src="images/mascot-thumbs-up.png"
+            alt="Smart Dip onion mascot giving a thumbs up"
+            class="mascot-float relative z-10 w-full max-w-xs sm:max-w-sm"
+            width="420"
+            height="480"
+          />
+        </div>
+
+        <div class="reveal reveal-delay-1 w-full max-w-xl mx-auto lg:mx-0">
+          <h2 class="font-display font-bold text-[clamp(2.2rem,5vw,3.75rem)] leading-[1.05] tracking-tight text-center lg:text-left mb-8">
+            Snack Smarter<br />
+            <span class="text-purple-brand">Dip Different</span>
+          </h2>
+
+          <div class="glass-panel relative">
+            <form id="contact-form" class="space-y-5" novalidate>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="first-name" class="form-label">First Name <span class="text-purple-brand">*</span></label>
+                  <input type="text" id="first-name" name="firstName" required autocomplete="given-name" class="form-input" />
+                </div>
+                <div>
+                  <label for="last-name" class="form-label">Last Name <span class="text-purple-brand">*</span></label>
+                  <input type="text" id="last-name" name="lastName" required autocomplete="family-name" class="form-input" />
+                </div>
+              </div>
+              <div>
+                <label for="email" class="form-label">Email <span class="text-purple-brand">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" class="form-input" />
+              </div>
+              <div>
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" class="form-input" />
+              </div>
+              <div>
+                <label for="details" class="form-label">Project / Inquiry Details <span class="text-purple-brand">*</span></label>
+                <textarea id="details" name="details" rows="4" required class="form-input resize-y min-h-[110px]"></textarea>
+              </div>
+              <button type="submit" class="btn-cta w-full sm:w-auto">Submit</button>
+            </form>
+
+            <div id="form-success" class="form-success hidden" role="status" aria-live="polite">
+              <div class="success-check" aria-hidden="true"></div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl mt-4">Thanks for reaching out!</h3>
+              <p class="mt-3 text-black/75 leading-relaxed">
+                We got your message. The Smart Dip crew will get back to you soon —
+                until then, keep snacking smarter.
+              </p>
+              <button type="button" id="form-reset" class="mt-6 text-sm font-semibold underline underline-offset-4 decoration-purple-brand">
+                Send another message
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative border-t-2 border-black/10 px-5 sm:px-8 py-12 sm:py-16">
+    <div class="mx-auto max-w-7xl flex flex-col md:flex-row md:items-start justify-between gap-10">
+      <div>
+        <img
+          src="images/logo-wordmark.png"
+          alt="Smart Dip"
+          class="h-14 sm:h-16 w-auto"
+          width="180"
+          height="64"
+        />
+        <p class="mt-4 text-sm text-black/60 max-w-xs">
+          Dip Differently. Snack Smarter. Made with swagger in Barrie, Ontario.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16 text-sm">
+        <div>
+          <h3 class="font-display font-semibold text-lg mb-3">Location</h3>
+          <p class="text-black/75 leading-relaxed">
+            120 Bell Farm Rd<br />
+            Barrie, ON L4M 6J2
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-lg mb-3">Contact</h3>
+          <p class="leading-relaxed">
+            <a href="mailto:info@smartdip.ca" class="text-purple-brand font-semibold hover:underline underline-offset-2">
+              info@smartdip.ca
+            </a><br />
+            <a href="tel:+12896008982" class="text-black/80 hover:text-black transition">
+              289-600-8982
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="mx-auto max-w-7xl mt-10 pt-6 border-t border-black/10 text-xs text-black/45">
+      &copy; <span id="year"></span> Smart Dip. All rights reserved.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
