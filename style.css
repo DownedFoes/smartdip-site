@@ -330,27 +330,91 @@ body {
   }
 }
 
-/* ---- Feature pills ---- */
-.pill-tag {
-  display: inline-flex;
+/* ---- Trust badges (protein + Canadian dairy) ---- */
+.trust-badges {
+  align-items: stretch;
+}
+
+.trust-badge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 0.45rem 1rem;
-  border-radius: 9999px;
+  justify-content: center;
+  min-width: 8.5rem;
+  min-height: 8.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  text-align: center;
+  line-height: 1.05;
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.12),
+    0 10px 24px rgba(0, 0, 0, 0.16);
+  transform: rotate(-3deg);
+}
+
+.trust-badge--protein {
   background: var(--purple);
   color: #fff;
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 3px 0 rgba(107, 0, 179, 0.45);
+  box-shadow:
+    0 0 0 3px #6b00b3,
+    0 12px 28px rgba(155, 0, 255, 0.45);
+  transform: rotate(-4deg) scale(1.06);
 }
 
-.pill-tag--alt {
-  background: var(--yellow-deep);
-  color: var(--black);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.12);
+.trust-badge--dairy {
+  background: #0b3d91;
+  color: #fff;
+  transform: rotate(3deg);
 }
 
-.pill-tag:nth-child(3) {
-  background: var(--green);
-  box-shadow: 0 3px 0 rgba(30, 120, 40, 0.4);
+.trust-badge__value {
+  font-family: 'Fredoka', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 2.35rem;
+  letter-spacing: -0.03em;
+}
+
+.trust-badge__value--sm {
+  font-size: 1.55rem;
+}
+
+.trust-badge__label {
+  font-family: 'Fredoka', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.trust-badge__sub {
+  margin-top: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  max-width: 6.5rem;
+}
+
+.trust-badge__maple {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-bottom: 0.2rem;
+  background: #ffeb60;
+  clip-path: polygon(
+    50% 0%,
+    61% 28%,
+    95% 22%,
+    72% 45%,
+    88% 78%,
+    50% 62%,
+    12% 78%,
+    28% 45%,
+    5% 22%,
+    39% 28%
+  );
 }
 
 /* ---- Flavor lineup ---- */
