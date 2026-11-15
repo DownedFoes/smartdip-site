@@ -353,6 +353,208 @@ body {
   box-shadow: 0 3px 0 rgba(30, 120, 40, 0.4);
 }
 
+/* ---- Flavor lineup ---- */
+.flavor-lineup {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .flavor-lineup {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.flavor-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0.2rem 0.75rem;
+  align-items: start;
+  padding: 1.1rem 1.25rem;
+  border: 2.5px solid rgba(0, 0, 0, 0.85);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.flavor-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.flavor-item--featured {
+  background: var(--purple);
+  border-color: #6b00b3;
+  box-shadow: 0 4px 0 #6b00b3;
+  color: #fff;
+}
+
+.flavor-item--featured:hover {
+  box-shadow: 0 7px 0 #6b00b3;
+  background: #a81aff;
+}
+
+.flavor-name {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: 'Fredoka', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.flavor-blurb {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.flavor-item--featured .flavor-blurb {
+  opacity: 0.92;
+}
+
+.flavor-badge {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--purple);
+}
+
+/* ---- Nutrition Facts label ---- */
+.nutrition-facts {
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: auto;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  padding: 0.65rem 0.75rem 0.85rem;
+  font-family: 'Plus Jakarta Sans', Helvetica, Arial, sans-serif;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.nf-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.15rem;
+}
+
+.nf-servings {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.nf-serving-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1rem;
+  font-weight: 800;
+  border-bottom: 10px solid #000;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
+}
+
+.nf-calories {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-weight: 800;
+  border-bottom: 5px solid #000;
+  padding-bottom: 0.15rem;
+}
+
+.nf-calories span:first-child {
+  font-size: 1.35rem;
+}
+
+.nf-calories span:last-child {
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.nf-dv-header {
+  margin: 0.15rem 0;
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-bottom: 1px solid #000;
+}
+
+.nf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nf-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  border-bottom: 1px solid #000;
+  padding: 0.12rem 0;
+}
+
+.nf-bold {
+  font-weight: 800;
+}
+
+.nf-indent {
+  padding-left: 1rem;
+  font-weight: 500;
+}
+
+.nf-indent-2 {
+  padding-left: 1.75rem;
+  font-weight: 500;
+}
+
+.nf-protein {
+  border-bottom-width: 8px;
+}
+
+.nf-vitamins {
+  border-bottom: 5px solid #000;
+  margin-bottom: 0.4rem;
+}
+
+.nf-vitamins .nf-row:last-child {
+  border-bottom: none;
+}
+
+.nf-footnote {
+  margin: 0;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: #222;
+}
+
 /* ---- Contact form glass ---- */
 .glass-panel {
   background: rgba(255, 255, 255, 0.42);
