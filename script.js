@@ -119,4 +119,68 @@
       if (first) first.focus();
     });
   }
+
+  /* Flavor selector */
+  const flavorButtons = [...document.querySelectorAll('.flavor-item[data-flavor]')];
+  const flavorLabel = document.getElementById('flavor-active-label');
+  const flavorBlurb = document.getElementById('flavor-active-blurb');
+  const flavorImage = document.getElementById('flavor-product-image');
+  const nutritionLabel = document.getElementById('nutrition-flavor-label');
+  const nutritionPanel = document.getElementById('nutrition-panel');
+  const nutritionSoon = document.getElementById('nutrition-soon');
+
+  const selectFlavor = (button) => {
+    if (!button) return;
+    const name = button.dataset.name || '';
+    const blurb = button.dataset.blurb || '';
+    const hasNutrition = button.dataset.hasNutrition === 'true';
+
+    flavorButtons.forEach((btn) => {
+      const selected = btn === button;
+      btn.classList.toggle('is-selected', selected);
+      btn.setAttribute('aria-checked', selected ? 'true' : 'false');
+      btn.tabIndex = selected ? 0 : -1;
+    });
+
+    if (flavorLabel) flavorLabel.textContent = name;
+    if (flavorBlurb) {
+      flavorBlurb.innerHTML = blurb.replace(
+        /28g of protein/gi,
+        '<strong class="text-black">28g of protein</strong>'
+      );
+    }
+    if (flavorImage) {
+      flavorImage.alt = `Smart Dip ${name} cottage cheese dip — 28g protein`;
+    }
+    if (nutritionLabel) {
+      nutritionLabel.textContent = hasNutrition
+        ? `${name} · Per container (250g)`
+        : `${name} · Nutrition coming soon`;
+    }
+    if (nutritionPanel) {
+      nutritionPanel.classList.toggle('hidden', !hasNutrition);
+      nutritionPanel.setAttribute(
+        'aria-label',
+        hasNutrition ? `Nutrition Facts for Smart Dip ${name}, 250 grams` : ''
+      );
+    }
+    if (nutritionSoon) {
+      nutritionSoon.classList.toggle('hidden', hasNutrition);
+    }
+  };
+
+  if (flavorButtons.length) {
+    flavorButtons.forEach((btn, index) => {
+      btn.tabIndex = btn.classList.contains('is-selected') ? 0 : -1;
+      btn.addEventListener('click', () => selectFlavor(btn));
+      btn.addEventListener('keydown', (event) => {
+        if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.key)) return;
+        event.preventDefault();
+        const delta = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : -1;
+        const next = (index + delta + flavorButtons.length) % flavorButtons.length;
+        flavorButtons[next].focus();
+        selectFlavor(flavorButtons[next]);
+      });
+    });
+  }
 })();

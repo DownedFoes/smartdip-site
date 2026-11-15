@@ -154,6 +154,7 @@
         <div class="reveal product-stage relative flex justify-center lg:justify-start order-1">
           <div class="product-glow" aria-hidden="true"></div>
           <img
+            id="flavor-product-image"
             src="images/product-french-onion.png"
             alt="Smart Dip French Onion cottage cheese dip lid — 28g protein"
             class="product-float relative z-10 w-full max-w-md lg:max-w-lg drop-shadow-product"
@@ -164,15 +165,15 @@
         </div>
 
         <div class="reveal reveal-delay-1 order-2 text-center lg:text-left">
-          <p class="font-display text-purple-brand text-sm font-semibold tracking-[0.18em] uppercase mb-4">
-            Our Flavors
+          <p id="flavor-active-label" class="font-display text-purple-brand text-sm font-semibold tracking-[0.18em] uppercase mb-4">
+            French Onion
           </p>
           <h2 class="font-display font-bold text-[clamp(2.2rem,5.5vw,4rem)] leading-[1.05] tracking-tight text-balance">
             Finally, a dip without the downsides
           </h2>
-          <p class="mt-6 text-base sm:text-lg leading-relaxed text-black/80 max-w-lg mx-auto lg:mx-0">
-            Creamy cottage cheese dip packed with <strong class="text-black">28g of protein</strong> —
-            all the indulgent flavour, none of the usual snack regrets. Dip differently. Snack smarter.
+          <p id="flavor-active-blurb" class="mt-6 text-base sm:text-lg leading-relaxed text-black/80 max-w-lg mx-auto lg:mx-0">
+            Classic, savory, and always a crowd favourite. Creamy cottage cheese dip packed with
+            <strong class="text-black">28g of protein</strong> — bold flavour, better ingredients, lasting satisfaction.
           </p>
           <ul class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3 text-sm font-semibold">
             <li class="pill-tag">28g Protein</li>
@@ -191,28 +192,67 @@
             The Lineup
           </h3>
           <p class="mt-2 text-black/70 text-sm sm:text-base max-w-md mx-auto">
-            Four bold flavours. Same high-protein cottage cheese base. Pick your vibe.
+            Four bold flavours. Same high-protein cottage cheese base. Tap a flavour to select it.
           </p>
         </div>
-        <ul class="flavor-lineup" role="list">
-          <li class="flavor-item flavor-item--featured">
+        <div class="flavor-lineup" role="radiogroup" aria-label="Choose a Smart Dip flavour">
+          <button
+            type="button"
+            class="flavor-item is-selected"
+            role="radio"
+            aria-checked="true"
+            data-flavor="french-onion"
+            data-name="French Onion"
+            data-blurb="Classic, savory, and always a crowd favourite. Creamy cottage cheese dip packed with 28g of protein — bold flavour, better ingredients, lasting satisfaction."
+            data-has-nutrition="true"
+          >
             <span class="flavor-name">French Onion</span>
             <span class="flavor-blurb">Classic, savory, and always a crowd favourite.</span>
-            <span class="flavor-badge">Featured</span>
-          </li>
-          <li class="flavor-item">
+            <span class="flavor-badge">Selected</span>
+          </button>
+          <button
+            type="button"
+            class="flavor-item"
+            role="radio"
+            aria-checked="false"
+            data-flavor="dill-pickle"
+            data-name="Dill Pickle"
+            data-blurb="Tangy, briny crunch in every creamy scoop. High-protein cottage cheese dip with bold pickle punch and lasting satisfaction."
+            data-has-nutrition="false"
+          >
             <span class="flavor-name">Dill Pickle</span>
             <span class="flavor-blurb">Tangy, briny crunch in every creamy scoop.</span>
-          </li>
-          <li class="flavor-item">
+            <span class="flavor-badge">Selected</span>
+          </button>
+          <button
+            type="button"
+            class="flavor-item"
+            role="radio"
+            aria-checked="false"
+            data-flavor="jalapeno-lime"
+            data-name="Jalapeño Lime"
+            data-blurb="Bright citrus heat with a cool, creamy finish. A high-protein scoop with zesty jalapeño kick."
+            data-has-nutrition="false"
+          >
             <span class="flavor-name">Jalapeño Lime</span>
             <span class="flavor-blurb">Bright citrus heat with a cool, creamy finish.</span>
-          </li>
-          <li class="flavor-item">
+            <span class="flavor-badge">Selected</span>
+          </button>
+          <button
+            type="button"
+            class="flavor-item"
+            role="radio"
+            aria-checked="false"
+            data-flavor="ranch"
+            data-name="Ranch"
+            data-blurb="Herby, familiar comfort — snack-time MVP. Creamy high-protein cottage cheese dip with classic ranch swagger."
+            data-has-nutrition="false"
+          >
             <span class="flavor-name">Ranch</span>
             <span class="flavor-blurb">Herby, familiar comfort — snack-time MVP.</span>
-          </li>
-        </ul>
+            <span class="flavor-badge">Selected</span>
+          </button>
+        </div>
       </div>
 
       <div id="nutrition" class="reveal mx-auto max-w-7xl mt-16 sm:mt-20">
@@ -220,11 +260,11 @@
           <h3 class="font-display font-bold text-[clamp(1.75rem,4vw,2.75rem)] tracking-tight">
             Nutrition Facts
           </h3>
-          <p class="mt-2 text-black/70 text-sm sm:text-base">
+          <p id="nutrition-flavor-label" class="mt-2 text-black/70 text-sm sm:text-base">
             French Onion · Per container (250g)
           </p>
         </div>
-        <div class="nutrition-facts" aria-label="Nutrition Facts for Smart Dip French Onion, 250 grams">
+        <div id="nutrition-panel" class="nutrition-facts" aria-label="Nutrition Facts for Smart Dip French Onion, 250 grams">
           <p class="nf-title">Nutrition Facts</p>
           <p class="nf-servings">1 serving per container</p>
           <div class="nf-serving-size">
@@ -259,6 +299,9 @@
             2,000 calories a day is used for general nutrition advice.
           </p>
         </div>
+        <p id="nutrition-soon" class="nutrition-soon hidden" role="status">
+          Full nutrition panel for this flavour is coming soon. Select <strong>French Onion</strong> to view current label facts.
+        </p>
       </div>
     </section>
 
