@@ -171,11 +171,17 @@ body {
   line-height: 0.9;
   letter-spacing: -0.03em;
   color: #fff;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+  /* Thick purple outline on every side so white letters pop on yellow */
+  -webkit-text-stroke: 0.08em var(--purple);
+  paint-order: stroke fill;
   text-shadow:
-    3px 3px 0 var(--purple),
-    5px 5px 0 #6b00b3,
-    0 12px 28px rgba(155, 0, 255, 0.35);
+    0 0 0 var(--purple),
+    0.06em 0.06em 0 #6b00b3,
+    -0.02em -0.02em 0 var(--purple),
+    0.02em -0.02em 0 var(--purple),
+    -0.02em 0.02em 0 var(--purple),
+    0.02em 0.02em 0 var(--purple),
+    0 0.12em 0.22em rgba(107, 0, 179, 0.45);
 }
 
 /* ---- CTA button ---- */
