@@ -8,6 +8,8 @@
   const contactForm = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
   const formReset = document.getElementById('form-reset');
+  const formError = document.getElementById('form-error');
+  const formSubmit = document.getElementById('form-submit');
 
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
@@ -96,16 +98,50 @@
   };
 
   if (contactForm && formSuccess) {
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (formError) {
+        formError.classList.add('hidden');
+        formError.textContent = '';
+      }
       if (!validateForm(contactForm)) {
         const firstInvalid = contactForm.querySelector('.is-invalid');
         if (firstInvalid) firstInvalid.focus();
         return;
       }
-      contactForm.classList.add('hidden');
-      formSuccess.classList.remove('hidden');
-      formSuccess.focus?.();
+
+      const submitBtn = formSubmit || contactForm.querySelector('[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || data.success === false) {
+          throw new Error(data.message || 'Something went wrong. Please try again.');
+        }
+        contactForm.classList.add('hidden');
+        formSuccess.classList.remove('hidden');
+      } catch (error) {
+        if (formError) {
+          formError.textContent =
+            error instanceof Error
+              ? error.message
+              : 'Something went wrong. Please email info@smartdip.ca.';
+          formError.classList.remove('hidden');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+        }
+      }
     });
   }
 
@@ -113,9 +149,13 @@
     formReset.addEventListener('click', () => {
       contactForm.reset();
       clearInvalid(contactForm);
+      if (formError) {
+        formError.classList.add('hidden');
+        formError.textContent = '';
+      }
       formSuccess.classList.add('hidden');
       contactForm.classList.remove('hidden');
-      const first = contactForm.querySelector('input');
+      const first = contactForm.querySelector('input:not([type="hidden"]):not([type="checkbox"])');
       if (first) first.focus();
     });
   }
